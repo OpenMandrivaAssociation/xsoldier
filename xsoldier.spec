@@ -1,6 +1,6 @@
 %define name	xsoldier
 %define version 1.4
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	Shooting game on X Window System
 Name:		%{name}
@@ -47,7 +47,7 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Encoding=UTF-8
-Name=%{title}
+Name=%{name}
 Comment=%{summary}
 Exec=%{_gamesbindir}/%{name} 
 Icon=%{name}
