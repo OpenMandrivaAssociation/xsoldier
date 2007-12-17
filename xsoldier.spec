@@ -17,7 +17,6 @@ Source3:	%{name}-icons.tar.bz2
 
 URL:		http://www.interq.or.jp/libra/oohara/xsoldier/
 Buildrequires:	libxpm-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Great little shoot 'em up game in the style of galaga. Very neat graphics, but
