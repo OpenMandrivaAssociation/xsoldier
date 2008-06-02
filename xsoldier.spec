@@ -29,14 +29,14 @@ there's no sound support yet.
 
 %build
 
-%configure --bindir=%{_gamesbindir} --localstatedir=%{_localstatedir}  --with-sdl
+%configure --bindir=%{_gamesbindir} --localstatedir=%{_localstatedir}/lib  --with-sdl
 
 %make
 
 %install
 rm -fr $RPM_BUILD_ROOT
 
-%makeinstall bindir=$RPM_BUILD_ROOT%{_gamesbindir} datadir=$RPM_BUILD_ROOT%{_datadir} localstatedir=$RPM_BUILD_ROOT%{_localstatedir} mandir=$RPM_BUILD_ROOT%{_mandir}
+%makeinstall bindir=$RPM_BUILD_ROOT%{_gamesbindir} datadir=$RPM_BUILD_ROOT%{_datadir} localstatedir=$RPM_BUILD_ROOT%{_localstatedir}/lib mandir=$RPM_BUILD_ROOT%{_mandir}
 
 install -m 755 -d $RPM_BUILD_ROOT/%{_menudir}
 install -m 755 -d $RPM_BUILD_ROOT/%{_iconsdir}
@@ -56,8 +56,8 @@ StartupNotify=true
 Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
 EOF
 
-chmod 777 $RPM_BUILD_ROOT/%{_localstatedir}/games/xsoldier
-cp scorefile.txt $RPM_BUILD_ROOT/%{_localstatedir}/games/xsoldier/xsoldier.scores
+chmod 777 $RPM_BUILD_ROOT/%{_localstatedir}/lib/games/xsoldier
+cp scorefile.txt $RPM_BUILD_ROOT/%{_localstatedir}/lib/games/xsoldier/xsoldier.scores
 
 %post
 %{update_menus}
@@ -78,6 +78,6 @@ rm -fr $RPM_BUILD_ROOT
 %{_miconsdir}/*.png
 %{_liconsdir}/*.png
 %{_mandir}/man6/*
-%attr(664, games, games) %{_localstatedir}/games/xsoldier/xsoldier.scores
+%attr(664, games, games) %{_localstatedir}/lib/games/xsoldier/xsoldier.scores
 
 
