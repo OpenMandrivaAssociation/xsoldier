@@ -59,11 +59,15 @@ EOF
 chmod 777 $RPM_BUILD_ROOT/%{_localstatedir}/lib/games/xsoldier
 cp scorefile.txt $RPM_BUILD_ROOT/%{_localstatedir}/lib/games/xsoldier/xsoldier.scores
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %clean
 rm -fr $RPM_BUILD_ROOT
