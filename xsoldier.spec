@@ -1,6 +1,6 @@
 %define name	xsoldier
 %define version 1.4
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary:	Shooting game on X Window System
 Name:		%{name}
