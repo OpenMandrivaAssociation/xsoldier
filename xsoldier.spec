@@ -1,6 +1,6 @@
 %define name	xsoldier
-%define version 1.4
-%define release %mkrel 7
+%define version 1.5
+%define release %mkrel 1
 
 Summary:	Shooting game on X Window System
 Name:		%{name}
@@ -11,10 +11,9 @@ Group:		Games/Arcade
 BuildRequires:	libx11-devel
 BuildRequires:	libSDL-devel
 BuildRequires:	libSDL_image-devel
-
-Source:		http://www.interq.or.jp/libra/oohara/xsoldier/%{name}-%{version}.tar.bz2
+Source:		http://www.interq.or.jp/libra/oohara/xsoldier/%{name}-%{version}.tar.gz
 Source3:	%{name}-icons.tar.bz2
-
+Patch0:		%{name}-1.5-mdv-fix-str-fmt.patch
 URL:		http://www.interq.or.jp/libra/oohara/xsoldier/
 Buildrequires:	libxpm-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
@@ -26,6 +25,7 @@ there's no sound support yet.
 %prep
 
 %setup -q
+%patch0 -p1 -b .strfmt
 
 %build
 
@@ -34,17 +34,17 @@ there's no sound support yet.
 %make
 
 %install
-rm -fr $RPM_BUILD_ROOT
+rm -fr %{buildroot}
 
-%makeinstall bindir=$RPM_BUILD_ROOT%{_gamesbindir} datadir=$RPM_BUILD_ROOT%{_datadir} localstatedir=$RPM_BUILD_ROOT%{_localstatedir}/lib mandir=$RPM_BUILD_ROOT%{_mandir}
+%makeinstall bindir=%{buildroot}%{_gamesbindir} datadir=%{buildroot}%{_datadir} localstatedir=%{buildroot}%{_localstatedir}/lib mandir=%{buildroot}%{_mandir}
 
-install -m 755 -d $RPM_BUILD_ROOT/%{_menudir}
-install -m 755 -d $RPM_BUILD_ROOT/%{_iconsdir}
+install -m 755 -d %{buildroot}/%{_menudir}
+install -m 755 -d %{buildroot}/%{_iconsdir}
 
-(cd  $RPM_BUILD_ROOT/%{_iconsdir} ; bunzip2 -c %{SOURCE3} | tar xvf - ) 
+(cd  %{buildroot}/%{_iconsdir} ; bunzip2 -c %{SOURCE3} | tar xvf - ) 
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=%{name}
 Comment=%{summary}
@@ -56,8 +56,8 @@ StartupNotify=true
 Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
 EOF
 
-chmod 777 $RPM_BUILD_ROOT/%{_localstatedir}/lib/games/xsoldier
-cp scorefile.txt $RPM_BUILD_ROOT/%{_localstatedir}/lib/games/xsoldier/xsoldier.scores
+chmod 777 %{buildroot}/%{_localstatedir}/lib/games/xsoldier
+cp scorefile.txt %{buildroot}/%{_localstatedir}/lib/games/xsoldier/xsoldier.scores
 
 %if %mdkversion < 200900
 %post
@@ -70,7 +70,7 @@ cp scorefile.txt $RPM_BUILD_ROOT/%{_localstatedir}/lib/games/xsoldier/xsoldier.s
 %endif
 
 %clean
-rm -fr $RPM_BUILD_ROOT
+rm -fr %{buildroot}
 
 %files
 %defattr(-,root,root)
