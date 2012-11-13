@@ -1,0 +1,12 @@
+diff -p -up xsoldier-1.5/manage.c.strfmt xsoldier-1.5/manage.c
+--- xsoldier-1.5/manage.c.strfmt	2006-09-16 11:21:03.000000000 +0200
++++ xsoldier-1.5/manage.c	2009-11-11 03:04:11.000000000 +0100
+@@ -394,7 +394,7 @@ PlayerData *NewPlayerData(void)
+ 
+     New = (PlayerData *)malloc(sizeof(PlayerData));
+ 
+-    sprintf(New->Rec[0].name,name);
++    sprintf(New->Rec[0].name, "%s",name);
+     New->Rec[0].score = 0;
+     New->Rec[0].stage = 0;
+     New->Rec[0].loop = 0;
