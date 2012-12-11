@@ -66,3 +66,66 @@ EOF
 %{_mandir}/man6/*
 %attr(664, games, games) %{_localstatedir}/lib/games/xsoldier/xsoldier.scores
 
+
+
+%changelog
+* Tue Apr 24 2012 Andrey Bondrov <abondrov@mandriva.org> 1.8-1mdv2011.0
++ Revision: 793132
+- New version 1.8
+
+* Wed Dec 08 2010 Oden Eriksson <oeriksson@mandriva.com> 1.5-2mdv2011.0
++ Revision: 615737
+- the mass rebuild of 2010.1 packages
+
+* Wed Nov 11 2009 Jérôme Brenier <incubusss@mandriva.org> 1.5-1mdv2010.1
++ Revision: 464479
+- update to new version 1.5
+- fix str fmt
+- $RPM_BUILD_ROOT -> %%{buildroot}
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Mon Aug 04 2008 Thierry Vignaud <tv@mandriva.org> 1.4-6mdv2009.0
++ Revision: 262717
+- rebuild
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 1.4-5mdv2009.0
++ Revision: 257773
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+    - adapt to %%_localstatedir now being /var instead of /var/lib (#22312)
+
+* Thu Jan 03 2008 Olivier Blin <blino@mandriva.org> 1.4-3mdv2008.1
++ Revision: 140994
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Wed Sep 19 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.4-3mdv2008.0
++ Revision: 90387
+- rebuild
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill desktop-file-validate's error: string list key "Categories" in group "Desktop Entry" does not have a semicolon (";") as trailing character
+    - kill desktop-file-validate's 'warning: key "Encoding" in group "Desktop Entry" is deprecated'
+
+* Mon Apr 30 2007 Crispin Boylan <crisb@mandriva.org> 1.4-2mdv2008.0
++ Revision: 19452
+- Fix menu name
+
+
+* Tue Jan 23 2007 Crispin Boylan <crisb@mandriva.org> 1.4-1mdv2007.0
++ Revision: 112663
+- New version, XDG menu
+- Import xsoldier
+
+* Thu Jan 05 2006 Lenny Cartier <lenny@mandriva.com> 1.3-5mdk
+- rebuild
+
+* Thu Jul 01 2004 Lenny Cartier <lenny@mandrakesoft.com> 1.3-4mdk
+- rebuild
+
