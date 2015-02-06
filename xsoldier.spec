@@ -1,7 +1,7 @@
 Summary:	Shooting game on X Window System
 Name:		xsoldier
 Version:	1.8
-Release:	%mkrel 1
+Release:	2
 License:	GPLv2
 Group:		Games/Arcade
 URL:		http://www.interq.or.jp/libra/oohara/xsoldier/
