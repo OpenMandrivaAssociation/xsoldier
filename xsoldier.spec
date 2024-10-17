@@ -4,7 +4,7 @@ Version:	1.8
 Release:	2
 License:	GPLv2
 Group:		Games/Arcade
-URL:		http://www.interq.or.jp/libra/oohara/xsoldier/
+URL:		https://www.interq.or.jp/libra/oohara/xsoldier/
 Source0:	http://www.interq.or.jp/libra/oohara/xsoldier/%{name}-%{version}.tar.gz
 Source3:	%{name}-icons.tar.bz2
 Patch0:		%{name}-1.5-mdv-fix-str-fmt.patch
