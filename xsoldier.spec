@@ -8,6 +8,11 @@ URL:		https://www.interq.or.jp/libra/oohara/xsoldier/
 Source0:	http://www.interq.or.jp/libra/oohara/xsoldier/%{name}-%{version}.tar.gz
 Source3:	%{name}-icons.tar.bz2
 Patch0:		%{name}-1.5-mdv-fix-str-fmt.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(sdl)
 BuildRequires:	pkgconfig(SDL_image)
 BuildRequires:	pkgconfig(x11)
